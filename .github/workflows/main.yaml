@@ -42,13 +42,14 @@ jobs:
           script: |
            eval "$(ssh-agent -s)"
            ssh-add ~/.ssh/ssh-praktikan42
+           rm -rf ~/senpro/543213/modul02/senpro-github-action/ || true;
            echo "Cek folder project";
            [ ! -d "${HOME}/senpro/543213/modul02/senpro-github-action/" ] &&
             {
              echo "Repository belum di clone, Cloning repository...";
              mkdir -p ~/senpro/543213/modul02;
              cd ~/senpro/543213/modul02/;
-             git clone https://github.com/RAKASAMUD/senpro-github-action.git
+             git clone https://github.com/RAKASAMUD/senpro-github-action.git;
              cd ~/senpro/543213/modul02/senpro-github-action/;
              echo "install package dan build project";
              npm install;
